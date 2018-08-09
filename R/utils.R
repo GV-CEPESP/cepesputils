@@ -1,9 +1,14 @@
 #' @export
-cpp_titulo <- function(titulo){
-  while(stringr::str_length(titulo) < 12){
-    titulo <- paste0("0",titulo)
+cpp_titulo <- function(titulos){
+  for(i in seq_along(titulos)){
+    if(is.na(titulos[[i]])){
+      return(NA_character_)
+    }
+    while(stringr::str_length(titulos[[i]]) < 12){
+      titulos[[i]] <- paste0("0",titulos[[i]])
+    }
   }
-  return(titulo)
+  return(titulos)
 }
 
 #' @export
