@@ -12,6 +12,19 @@ cpp_titulo <- function(titulos){
 }
 
 #' @export
+cpp_cpf <- function(cpfs){
+  for(i in seq_along(cpfs)){
+    if(is.na(cpfs[[i]])){
+      return(NA_character_)
+    }
+    while(stringr::str_length(cpfs[[i]]) < 11){
+      cpfs[[i]] <- paste0("0",cpfs[[i]])
+    }
+  }
+  return(cpfs)
+}
+
+#' @export
 cpp_numeric_group <- function(str){
   str <- as.character(str)
   count = 0
