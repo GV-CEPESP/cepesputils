@@ -1,6 +1,13 @@
+#' @import rlang
+#' @import tibble
+#' @import stringr
+#'
 #' @export
 
-check_cpf <- function(data, cpfs){
+cpp_check_cpf <- function(data, cpf){
+
+  cpfs <- rlang::enquo(cpf)
+
   if(!is.character(cpfs)){
     stop("cpfs must be character vector.")
   }
@@ -33,6 +40,6 @@ check_cpf <- function(data, cpfs){
   colnames(valid_code) <- c("first_digit_valid", "second_digit_valid")
   valid_code <- tibble::as_tibble(valid_code)
 
-  return(bind_cols(data, valid_code))
+  return(tibble::as_tibble(cbind(data, valid_code)))
 }
 

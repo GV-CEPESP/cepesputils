@@ -1,8 +1,15 @@
+#' @import rlang
+#' @import tibble
+#'
 #' @export
 
-check_titulos <- function(data, titulos, uf = NULL){
+cpp_check_titulos <- function(data, titulo, ufs){
 
-  if(nrow(data) != length(titulos)){
+  titulos <- rlang::enquo(titulo)
+
+  uf <- rlang::enquo(ufs)
+
+    if(nrow(data) != length(titulos)){
     stop("data and titulos must have the same length.")
   }
 
@@ -74,5 +81,5 @@ check_titulos <- function(data, titulos, uf = NULL){
 
   teste_verif <- ifelse(verif == substr(titulos, 11, 12), 1, 0)
 
-  cbind(data, teste_digitos, teste_uf, teste_verif)
+  tibble::as_tibble(cbind(data, teste_digitos, teste_uf, teste_verif))
 }
