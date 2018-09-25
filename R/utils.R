@@ -1,25 +1,15 @@
 #' @export
 cpp_titulo <- function(titulos){
-  for(i in seq_along(titulos)){
-    if(is.na(titulos[[i]])){
-      return(NA_character_)
-    }
-    while(stringr::str_length(titulos[[i]]) < 12){
-      titulos[[i]] <- paste0("0",titulos[[i]])
-    }
+  while(any(nchar(titulos) < 12)){
+    titulos[nchar(titulos) < 12] <- paste0("0", titulos[nchar(titulos) < 12])
   }
   return(titulos)
 }
 
 #' @export
 cpp_cpf <- function(cpfs){
-  for(i in seq_along(cpfs)){
-    if(is.na(cpfs[[i]])){
-      return(NA_character_)
-    }
-    while(stringr::str_length(cpfs[[i]]) < 11){
-      cpfs[[i]] <- paste0("0",cpfs[[i]])
-    }
+  while(any(nchar(cpfs) < 11)){
+    cpfs[nchar(cpfs) < 11] <- paste0("0", cpfs[nchar(cpfs) < 11])
   }
   return(cpfs)
 }
