@@ -3,13 +3,9 @@
 #'
 #' @export
 
-cpp_check_titulos <- function(data, titulo, ufs){
+cpp_check_titulos <- function(data, titulos, uf = NULL){
 
-  titulos <- rlang::enquo(titulo)
-
-  uf <- rlang::enquo(ufs)
-
-    if(nrow(data) != length(titulos)){
+  if(nrow(data) != length(titulos)){
     stop("data and titulos must have the same length.")
   }
 

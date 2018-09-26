@@ -4,9 +4,7 @@
 #'
 #' @export
 
-cpp_check_cpf <- function(data, cpf){
-
-  cpfs <- rlang::enquo(cpf)
+cpp_check_cpf <- function(data, cpfs){
 
   if(!is.character(cpfs)){
     stop("cpfs must be character vector.")

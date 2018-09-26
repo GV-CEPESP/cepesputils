@@ -1,6 +1,6 @@
 #' @export
 cpp_titulo <- function(titulos){
-  while(any(nchar(titulos) < 12)){
+  while(any(nchar(titulos) < 12, na.rm = TRUE)){
     titulos[nchar(titulos) < 12] <- paste0("0", titulos[nchar(titulos) < 12])
   }
   return(titulos)
