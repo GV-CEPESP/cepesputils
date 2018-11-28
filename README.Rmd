@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "cepesputils"
 output: github_document
 ---
 
@@ -8,12 +8,28 @@ knitr::opts_chunk$set(echo = TRUE,
                       eval = FALSE)
 ```
 
+Pacote desenvolvido com objetivo de agrupar soluções cotidianas para análise de dados utilizadas pelos pesquisadores do CEPESP.
+
 ## Install
 
 ```{r}
 if(!require(devtools)) install.packages("devtools")
 devtools::install_github("GV-CEPESP/cepesputils")
 ```
+
+## Funções
+
+- `cpp_cpf`: padrão pdf com 11 dígitos, adicionando 0s a esquerda.
+
+- `cpp_titulo`: padrão titulo com 12 dígitos, adicionando 0s esquerda.
+
+- `cpp_check_cpf`: avalia se um número de cpf é válido.
+
+- `cpp_check_titulo`: avalia se um número de títutlo de eleitor é válido.
+
+- `cpp_siglas_uf`: vetor com ufs.
+
+- `cpp_rm_accents`: remove acentos de caracteres. Por exemplo, `ç` vira `c`.
 
 ## Fontes
 

@@ -3,7 +3,7 @@
 #'
 #' @export
 
-cpp_check_titulos <- function(titulos){
+cpp_check_titulo <- function(titulos){
   ## Check 12 digits
   if(any(nchar(titulos) != 12)){
     stop("titulos must have 12 characters. Use cpp_titulos to adjust that.")
